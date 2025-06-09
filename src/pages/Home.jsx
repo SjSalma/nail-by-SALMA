@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import Navbar from '../composantes/Navbar';
 import Footer from '../composantes/Footer';
 import GaleriePhoto from '../composantes/home/GaleriePhoto';
@@ -11,8 +12,15 @@ import img1 from '../assets/home/nouveauté.png';
 import img2 from '../assets/home/icon1.png';
 import img3 from '../assets/home/icon2.png';
 
-
 function Home() {
+  const quizRef = useRef(null);
+
+  const scrollToQuiz = () => {
+    if (quizRef.current) {
+      quizRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="page">
       <Navbar />
@@ -35,7 +43,7 @@ function Home() {
         <Témoignages />
       </section>
 
-      <section id="section-quiz" className="section-droite">
+      <section ref={quizRef} id="section-quiz" className="section-droite">
         <div className="nouveaute-rose">
           <img src={img1} alt="nouveauté" />
           <h2> : pour offrir ?</h2>
@@ -49,13 +57,12 @@ function Home() {
 
       <Footer />
 
-        <a href="#section-quiz" className="floating-icon">
-          <div className="icon-wrapper">
-            <img src={img2} alt="Quiz" className="icon-default" />
-            <img src={img3} alt="Quiz hover" className="icon-hover" />
-          </div>
-        </a>
-
+      <div className="floating-icon" onClick={scrollToQuiz}>
+        <div className="icon-wrapper">
+          <img src={img2} alt="Quiz" className="icon-default" />
+          <img src={img3} alt="Quiz hover" className="icon-hover" />
+        </div>
+      </div>
     </div>
   );
 }
