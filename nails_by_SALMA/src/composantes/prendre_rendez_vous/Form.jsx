@@ -60,7 +60,7 @@ function Form() {
   const loadHorairesOccupes = async (dateObj) => {
     if (!dateObj) return;
     const d = dateObj.toISOString().split("T")[0];
-    const res = await fetch(`http://localhost:5000/api/horaires-occupes/${d}`);
+    const res = await fetch(`https://nail-by-salma.onrender.com/api/horaires-occupes/${d}`);
     const data = await res.json();
     setHorairesOccupes(data);
   };
@@ -102,7 +102,7 @@ function Form() {
       service: formData.services.join(", ")
     };
 
-    fetch("http://localhost:5000/api/reservations", {
+    fetch("https://nail-by-salma.onrender.com/api/reservations", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
@@ -191,7 +191,7 @@ function Form() {
   }, [selectedDate]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/services")
+      fetch("https://nail-by-salma.onrender.com/api/services")
       .then(res => res.json())
       .then(data => setServices(data))
       .catch(console.error);
