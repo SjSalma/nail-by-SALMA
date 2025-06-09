@@ -191,11 +191,41 @@ function Form() {
   }, [selectedDate]);
 
   useEffect(() => {
-      fetch("https://nail-by-salma.onrender.com/api/services")
-      .then(res => res.json())
-      .then(data => setServices(data))
-      .catch(console.error);
+    const servicesEnDur = [
+      { id: 1, nom_service: "Manucure simple", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Soins des ongles naturels" },
+      { id: 2, nom_service: "Manucure spa (avec massage)", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Soins des ongles naturels" },
+      { id: 3, nom_service: "Pose de vernis classique", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Soins des ongles naturels" },
+      { id: 4, nom_service: "Manucure express (limage + vernis)", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Soins des ongles naturels" },
+
+      { id: 5, nom_service: "Vernis semi-permanent mains", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Semi-permanent" },
+      { id: 6, nom_service: "Depose semi-permanent", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Semi-permanent" },
+      { id: 7, nom_service: "Base renforcee", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Semi-permanent" },
+
+      { id: 8, nom_service: "Pose gel avec rallongement", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Gel/Acrygel/Extensions" },
+      { id: 9, nom_service: "Pose complete avec rallongement capsules", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Gel/Acrygel/Extensions" },
+      { id: 10, nom_service: "Pose en polygel / acrygel", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Gel/Acrygel/Extensions" },
+      { id: 11, nom_service: "Remplissage gel ou polygel", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Gel/Acrygel/Extensions" },
+      { id: 12, nom_service: "Depose de gel / polygel", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Gel/Acrygel/Extensions" },
+
+      { id: 13, nom_service: "Nail art simple (1-2 ongles)", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1, sous_categorie: null },
+      { id: 14, nom_service: "Nail art complet personnalise", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1, sous_categorie: null },
+      { id: 15, nom_service: "Babyboomer", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1, sous_categorie: null },
+      { id: 16, nom_service: "French manucure", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1, sous_categorie: null },
+      { id: 17, nom_service: "Effets speciaux (chrome, marbre...)", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1, sous_categorie: null },
+      { id: 18, nom_service: "Encapsulation", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1, sous_categorie: null },
+
+      { id: 19, nom_service: "Beaute des pieds (soin + vernis)", categorie: "Beaute des pieds", categorie_id: 3, multiple_selection: 0, sous_categorie: null },
+      { id: 20, nom_service: "Spa des pieds complet", categorie: "Beaute des pieds", categorie_id: 3, multiple_selection: 0, sous_categorie: null },
+      { id: 21, nom_service: "Depose vernis semi permanent", categorie: "Beaute des pieds", categorie_id: 3, multiple_selection: 0, sous_categorie: null },
+
+      { id: 22, nom_service: "Retrait vernis semi-permanent", categorie: "Services a la carte", categorie_id: 4, multiple_selection: 1, sous_categorie: null },
+      { id: 23, nom_service: "Massage mains 15min", categorie: "Services a la carte", categorie_id: 4, multiple_selection: 1, sous_categorie: null },
+      { id: 24, nom_service: "Massage mains 30min", categorie: "Services a la carte", categorie_id: 4, multiple_selection: 1, sous_categorie: null },
+    ];
+
+    setServices(servicesEnDur);
   }, []);
+
 
   useEffect(() => {
     const raw = localStorage.getItem('quizServicesBdd');
