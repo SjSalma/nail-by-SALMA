@@ -36,8 +36,7 @@ app.get('/api/dates-disponibles', async (req, res) => {
     for (let i = 0; i < 30; i++) {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
-      const day = date.getDay(); // 0 = dimanche, 6 = samedi
-
+      const day = date.getDay();
       if (day === 0 || day === 6) continue;
 
       const formatted = date.toISOString().split('T')[0];
@@ -57,9 +56,7 @@ app.get('/api/horaires-occupes/:date', async (req, res) => {
   const date = req.params.date;
 
   try {
-    const result = await pool.query(
-      `SELECT horaire FROM reservations WHERE date = $1`, [date]
-    );
+    const result = await pool.query(`SELECT horaire FROM reservations WHERE date = $1`, [date]);
     const horairesOccupes = result.rows.map(row => row.horaire);
     res.json(horairesOccupes);
   } catch (err) {
