@@ -59,10 +59,7 @@ function Form() {
 
   const loadHorairesOccupes = async (dateObj) => {
     if (!dateObj) return;
-    const d = dateObj.toISOString().split("T")[0];
-    const res = await fetch(`https://nail-by-salma.onrender.com/api/horaires-occupes/${d}`);
-    const data = await res.json();
-    setHorairesOccupes(data);
+    setHorairesOccupes([]); // plus de backend
   };
 
   const isDateAvailable = (date) => {
@@ -96,42 +93,23 @@ function Form() {
       return;
     }
 
-    const body = {
-      ...formData,
-      date: selectedDate.toISOString().split("T")[0],
-      service: formData.services.join(", ")
-    };
+    setShowModal(true);
 
-    fetch("https://nail-by-salma.onrender.com/api/reservations", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body)
-    })
-      .then(async res => {
-        const data = await res.json();
-        if (res.status === 409) {
-          alert("Ce créneau est déjà réservé.");
-        } else if (data.success) {
-          setShowModal(true);
-          setFormData({
-            prenom: '',
-            nom: '',
-            telephone: '',
-            email: '',
-            service: '',
-            horaire: '',
-            commentaire: '',
-            services: []
-          });
-          setSelectedDate(null);
-          setHorairesOccupes([]);
-          localStorage.removeItem('quizCommentaire');
-          localStorage.removeItem('quizSuggestionNom');
-        } else {
-          alert("❌ Une erreur est survenue.");
-        }
-      })
-      .catch(() => alert("❌ Erreur de connexion au serveur."));
+    setFormData({
+      prenom: '',
+      nom: '',
+      telephone: '',
+      email: '',
+      service: '',
+      horaire: '',
+      commentaire: '',
+      services: []
+    });
+
+    setSelectedDate(null);
+    setHorairesOccupes([]);
+    localStorage.removeItem('quizCommentaire');
+    localStorage.removeItem('quizSuggestionNom');
   };
 
   const handleServiceChange = (e) => {
@@ -192,69 +170,34 @@ function Form() {
 
   useEffect(() => {
     const servicesEnDur = [
-      { id: 1, nom_service: "Manucure simple", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Soins des ongles naturels" },
-      { id: 2, nom_service: "Manucure spa (avec massage)", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Soins des ongles naturels" },
-      { id: 3, nom_service: "Pose de vernis classique", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Soins des ongles naturels" },
-      { id: 4, nom_service: "Manucure express (limage + vernis)", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Soins des ongles naturels" },
-
-      { id: 5, nom_service: "Vernis semi-permanent mains", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Semi-permanent" },
-      { id: 6, nom_service: "Depose semi-permanent", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Semi-permanent" },
-      { id: 7, nom_service: "Base renforcee", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Semi-permanent" },
-
-      { id: 8, nom_service: "Pose gel avec rallongement", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Gel/Acrygel/Extensions" },
-      { id: 9, nom_service: "Pose complete avec rallongement capsules", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Gel/Acrygel/Extensions" },
-      { id: 10, nom_service: "Pose en polygel / acrygel", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Gel/Acrygel/Extensions" },
-      { id: 11, nom_service: "Remplissage gel ou polygel", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Gel/Acrygel/Extensions" },
-      { id: 12, nom_service: "Depose de gel / polygel", categorie: "Manucure", categorie_id: 1, multiple_selection: 0, sous_categorie: "Gel/Acrygel/Extensions" },
-
-      { id: 13, nom_service: "Nail art simple (1-2 ongles)", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1, sous_categorie: null },
-      { id: 14, nom_service: "Nail art complet personnalise", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1, sous_categorie: null },
-      { id: 15, nom_service: "Babyboomer", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1, sous_categorie: null },
-      { id: 16, nom_service: "French manucure", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1, sous_categorie: null },
-      { id: 17, nom_service: "Effets speciaux (chrome, marbre...)", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1, sous_categorie: null },
-      { id: 18, nom_service: "Encapsulation", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1, sous_categorie: null },
-
-      { id: 19, nom_service: "Beaute des pieds (soin + vernis)", categorie: "Beaute des pieds", categorie_id: 3, multiple_selection: 0, sous_categorie: null },
-      { id: 20, nom_service: "Spa des pieds complet", categorie: "Beaute des pieds", categorie_id: 3, multiple_selection: 0, sous_categorie: null },
-      { id: 21, nom_service: "Depose vernis semi permanent", categorie: "Beaute des pieds", categorie_id: 3, multiple_selection: 0, sous_categorie: null },
-
-      { id: 22, nom_service: "Retrait vernis semi-permanent", categorie: "Services a la carte", categorie_id: 4, multiple_selection: 1, sous_categorie: null },
-      { id: 23, nom_service: "Massage mains 15min", categorie: "Services a la carte", categorie_id: 4, multiple_selection: 1, sous_categorie: null },
-      { id: 24, nom_service: "Massage mains 30min", categorie: "Services a la carte", categorie_id: 4, multiple_selection: 1, sous_categorie: null },
+      { id: 1, nom_service: "Manucure simple", categorie: "Manucure", categorie_id: 1, multiple_selection: 0 },
+      { id: 2, nom_service: "Manucure spa (avec massage)", categorie: "Manucure", categorie_id: 1, multiple_selection: 0 },
+      { id: 3, nom_service: "Pose de vernis classique", categorie: "Manucure", categorie_id: 1, multiple_selection: 0 },
+      { id: 4, nom_service: "Manucure express (limage + vernis)", categorie: "Manucure", categorie_id: 1, multiple_selection: 0 },
+      { id: 5, nom_service: "Vernis semi-permanent mains", categorie: "Manucure", categorie_id: 1, multiple_selection: 0 },
+      { id: 6, nom_service: "Depose semi-permanent", categorie: "Manucure", categorie_id: 1, multiple_selection: 0 },
+      { id: 7, nom_service: "Base renforcee", categorie: "Manucure", categorie_id: 1, multiple_selection: 0 },
+      { id: 8, nom_service: "Pose gel avec rallongement", categorie: "Manucure", categorie_id: 1, multiple_selection: 0 },
+      { id: 9, nom_service: "Pose complete avec rallongement capsules", categorie: "Manucure", categorie_id: 1, multiple_selection: 0 },
+      { id: 10, nom_service: "Pose en polygel / acrygel", categorie: "Manucure", categorie_id: 1, multiple_selection: 0 },
+      { id: 11, nom_service: "Remplissage gel ou polygel", categorie: "Manucure", categorie_id: 1, multiple_selection: 0 },
+      { id: 12, nom_service: "Depose de gel / polygel", categorie: "Manucure", categorie_id: 1, multiple_selection: 0 },
+      { id: 13, nom_service: "Nail art simple (1-2 ongles)", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1 },
+      { id: 14, nom_service: "Nail art complet personnalise", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1 },
+      { id: 15, nom_service: "Babyboomer", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1 },
+      { id: 16, nom_service: "French manucure", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1 },
+      { id: 17, nom_service: "Effets speciaux (chrome, marbre...)", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1 },
+      { id: 18, nom_service: "Encapsulation", categorie: "Nail Art", categorie_id: 2, multiple_selection: 1 },
+      { id: 19, nom_service: "Beaute des pieds (soin + vernis)", categorie: "Beauté des pieds", categorie_id: 3, multiple_selection: 0 },
+      { id: 20, nom_service: "Spa des pieds complet", categorie: "Beauté des pieds", categorie_id: 3, multiple_selection: 0 },
+      { id: 21, nom_service: "Depose vernis semi permanent", categorie: "Beauté des pieds", categorie_id: 3, multiple_selection: 0 },
+      { id: 22, nom_service: "Retrait vernis semi-permanent", categorie: "Services à la carte", categorie_id: 4, multiple_selection: 1 },
+      { id: 23, nom_service: "Massage mains 15min", categorie: "Services à la carte", categorie_id: 4, multiple_selection: 1 },
+      { id: 24, nom_service: "Massage mains 30min", categorie: "Services à la carte", categorie_id: 4, multiple_selection: 1 }
     ];
 
     setServices(servicesEnDur);
   }, []);
-
-
-  useEffect(() => {
-    const raw = localStorage.getItem('quizServicesBdd');
-    const commentaireQuiz = localStorage.getItem('quizCommentaire');
-
-    if (services.length > 0 && (raw || commentaireQuiz)) {
-      if (raw) {
-        const noms = raw.split('+').map(n => n.trim().toLowerCase());
-        const matches = services
-          .filter(s => noms.includes(s.nom?.toLowerCase?.()) || noms.includes(s.nom_service?.toLowerCase?.()))
-          .map(s => s.nom_service);
-
-        setFormData(prev => ({
-          ...prev,
-          services: [...new Set([...prev.services, ...matches])]
-        }));
-      }
-
-      if (commentaireQuiz) {
-        setFormData(prev => ({ ...prev, commentaire: commentaireQuiz }));
-      }
-
-      localStorage.removeItem('quizServicesBdd');
-      localStorage.removeItem('quizCommentaire');
-      localStorage.removeItem('quizNomAffichage');
-      localStorage.removeItem('quizSuggestionPrix');
-      localStorage.removeItem('quizSuggestionTemps');
-    }
-  }, [services]);
 
   return (
     <div className="form-container">
@@ -303,10 +246,9 @@ function Form() {
         <label>
           <span>Choisissez les services souhaités :</span>
           <div className="service-selector">
-            console.log("💅 Catégories générées :", categorizeServices());
             {Object.entries(categorizeServices()).map(([categorie, items]) => (
               <div key={categorie}>
-                <strong style={{ pointerEvents: 'none' }}>{categorie}</strong>
+                <strong>{categorie}</strong>
                 <ul>
                   {items.map((service) => (
                     <li key={service.id}>
