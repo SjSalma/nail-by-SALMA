@@ -1,0 +1,44 @@
+.moi-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #000;
+  padding: clamp(0.6rem, 2.5vw, 14px);
+  gap: clamp(0.6rem, 2.5vw, 14px);
+  background-color: white;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.4rem, 1.8vw, 9px);
+}
+
+.moi-container h1 {
+  font-size: clamp(1.1rem, 3vw, 22px);
+  font-weight: 700;
+  color: #000;
+}
+
+.moi-container em {
+  font-style: italic;
+}
+
+.moi-container p {
+  font-size: clamp(0.95rem, 2.5vw, 18px);
+  font-weight: 400;
+  color: #000000c0;
+}
+
+.section ul {
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+
+.section li {
+  margin-left: clamp(0.8rem, 3.5vw, 18px);
+  font-size: clamp(0.95rem, 2.5vw, 18px);
+  font-weight: 400;
+  color: #000000c0;
+}

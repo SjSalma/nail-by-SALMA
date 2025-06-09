@@ -1,0 +1,120 @@
+.quiz-titre {
+  text-align: center;
+  padding: clamp(0.8rem, 3.5vw, 26px);
+  background-color: #90A8ED;
+  border: 1px solid #000;
+  border-bottom: none;
+  border-top-left-radius: clamp(0.35rem, 0.9vw, 7px);
+  border-top-right-radius: clamp(0.35rem, 0.9vw, 7px);
+}
+
+.quiz-titre h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 4.5vw, 30px);
+  color: #000;
+  font-weight: 700;
+}
+
+.quiz-form p {
+  font-size: clamp(0.9rem, 2.5vw, 18px);
+  color: #4E5A7C;
+  font-weight: 400;
+}
+
+form {
+  width: 100%;
+  padding: clamp(0.8rem, 3.5vw, 26px);
+  padding-top: 0;
+  background-color: #fff;
+  border: 1px solid #000;
+  box-sizing: border-box;
+}
+
+.questions {
+  margin-top: clamp(0.8rem, 2.5vw, 22px);
+  width: 100%;
+}
+
+.questions h1 {
+  margin: 0;
+  font-size: clamp(1rem, 2.5vw, 18px);
+  color: #000;
+  font-weight: 600;
+}
+
+.reponses {
+  display: flex;
+  gap: clamp(0.8rem, 4.5vw, 36px);
+  margin-top: clamp(0.25rem, 1.5vw, 6px);
+  margin-left: clamp(0.6rem, 2.5vw, 18px);
+}
+
+.reponses label {
+  font-size: clamp(0.9rem, 2.5vw, 16px);
+  font-weight: 400;
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: clamp(0.7rem, 2vw, 16px);
+  height: clamp(0.7rem, 2vw, 16px);
+  border: 1px solid #00000080;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="radio"]:checked {
+  background-color: #00000080;
+}
+
+.suggestion-box {
+  background-color: #90A8ED;
+  border: 1px solid black;
+  border-top: 0;
+  border-bottom-left-radius: clamp(0.35rem, 0.9vw, 7px);
+  border-bottom-right-radius: clamp(0.35rem, 0.9vw, 7px);
+  padding: clamp(0.8rem, 3.5vw, 22px);
+  margin-bottom: clamp(0.8rem, 3.5vw, 18px);
+  color: black;
+  text-align: center;
+}
+
+.suggestion-box p {
+  font-size: clamp(0.9rem, 2.5vw, 18px);
+  color: #4E5A7C;
+  font-weight: 500;
+}
+
+.btn-rose {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #E900B7;
+  color: #000;
+  border: 1px solid #000;
+  padding: clamp(0.6rem, 2vw, 12px) clamp(4.2rem, 10vw, 110px);
+  border-radius: clamp(0.25rem, 0.8vw, 3.5px);
+  cursor: pointer;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(0.9rem, 2.5vw, 18px);
+}
+
+@media (max-width: 600px) {
+  .questions {
+    margin-bottom: clamp(1.2rem, 3vw, 28px);
+  }
+
+  .reponses {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.6rem, 2vw, 16px);
+  }
+
+  .reponses label {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.4rem, 2vw, 12px);
+  }
+}

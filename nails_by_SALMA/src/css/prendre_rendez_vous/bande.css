@@ -1,0 +1,37 @@
+.bande-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: clamp(1.6rem, 4.2vw, 40px) clamp(1rem, 3.5vw, 24px);
+  background-color: #90A8ED;
+  border-top: 1px solid #000;
+  flex-wrap: wrap;
+}
+
+.bande-item {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.4rem, 1.8vw, 9px);
+  max-width: clamp(13rem, 45vw, 340px);
+  text-align: left;
+}
+
+.bande-item img {
+  width: clamp(3rem, 8vw, 72px);
+  height: auto;
+}
+
+.bande-item h3 {
+  margin: 0;
+  font-size: clamp(1rem, 2.5vw, 20px);
+  font-weight: 700;
+  font-style: normal;
+  color: #000;
+}
+
+.bande-item p {
+  font-size: clamp(0.9rem, 2.4vw, 18px);
+  font-weight: 400;
+  font-style: normal;
+  color: #000;
+}

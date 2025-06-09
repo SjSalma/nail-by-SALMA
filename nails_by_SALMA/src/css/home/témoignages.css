@@ -1,0 +1,78 @@
+.testimonial {
+  margin: auto;
+}
+
+.testimonial-box {
+  display: flex;
+  align-items: flex-start;
+  border: 1px solid #000;
+  padding: clamp(0.6rem, 2.5vw, 14px);
+  gap: clamp(0.6rem, 2.5vw, 14px);
+  margin-bottom: clamp(0.6rem, 2.5vw, 14px);
+  background-color: white;
+}
+
+.flag {
+  position: relative;
+  margin-top: clamp(0.2rem, 0.6vw, 4px);
+  width: clamp(3.5rem, 8vw, 90px);
+  flex-shrink: 0;
+}
+
+.flag img {
+  width: 100%;
+  display: block;
+}
+
+.flag span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-63%, -60%);
+  color: #000;
+  font-size: clamp(0.75rem, 1.8vw, 14px);
+  z-index: 2;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.testimonial-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.testimonial-text h1 {
+  font-size: clamp(1rem, 2.6vw, 20px);
+  font-weight: 700;
+  font-style: normal;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.testimonial-text p {
+  font-size: clamp(0.95rem, 2.3vw, 18px);
+  font-weight: 400;
+  font-style: normal;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-center {
+  text-align: center;
+}
+
+.btn-rose {
+  background-color: #E900B7;
+  color: #000;
+  border: 1px solid #000;
+  padding: clamp(0.5rem, 1.8vw, 11px) clamp(2.5rem, 8vw, 80px);
+  border-radius: clamp(0.2rem, 0.9vw, 3.5px);
+  cursor: pointer;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(0.85rem, 2.3vw, 15.5px);
+}

@@ -1,0 +1,43 @@
+.galerie-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.6rem, 2.5vw, 14px);
+}
+
+.galerie-container {
+  display: flex;
+  overflow-x: auto;
+  gap: clamp(0.5rem, 2vw, 12px);
+}
+
+.galerie-container::-webkit-scrollbar {
+  display: none;
+}
+
+.galerie-img {
+  flex-shrink: 0;
+  height: clamp(7rem, 22vw, 260px);
+  width: auto;
+  border-radius: clamp(0.2rem, 0.9vw, 5px);
+  border: clamp(0.04rem, 0.25vw, 0.8px) solid #434343;
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+
+.arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(1.5rem, 3.5vw, 36px);
+  height: clamp(1rem, 3vw, 30px);
+  background-color: #F2B5E2;
+  color: #E900B7;
+  font-size: clamp(1rem, 2.5vw, 20px);
+  font-weight: 700;
+  border: none;
+  border-radius: clamp(0.2rem, 0.9vw, 3.5px);
+  cursor: pointer;
+  line-height: 1;
+  vertical-align: middle;
+}

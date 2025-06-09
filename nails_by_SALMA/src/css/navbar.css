@@ -1,0 +1,185 @@
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #000;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.logo-navbar {
+  padding-left: clamp(0.5rem, 2vw, 22px);
+}
+
+.logo-navbar img {
+  height: clamp(16px, 2.5vw, 26px);
+  width: auto;
+  max-width: 100%;
+}
+
+.nav-links {
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  display: flex;
+  gap: clamp(0.3rem, 1vw, 12px);
+  transition: max-height 0.3s ease;
+  z-index: 1002;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: clamp(0.75rem, 1.9vw, 16px);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: clamp(0.2px, 0.16vw, 0.35px);
+}
+
+.nav-links li a {
+  padding: clamp(0.42rem, 1.4vw, 11px) clamp(0.55rem, 2vw, 16px);
+  border-radius: 100px;
+  transition: background-color 0.05s ease, color 0.05s ease;
+  font-size: clamp(0.75rem, 1.9vw, 16px);
+}
+
+.nav-links li a:hover {
+  background-color: #313130;
+  color: #fff;
+}
+
+.nav-links a.active {
+  background-color: #000;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.btn-reserve {
+  background-color: black;
+  font-size: clamp(0.75rem, 1.9vw, 16px);
+  color: white;
+  height: clamp(2.4rem, 5.5vw, 65px);
+  width: clamp(7rem, 18vw, 210px);
+  border: none;
+  cursor: pointer;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: clamp(0.2px, 0.16vw, 0.35px);
+}
+
+@media (max-width: 1000px) {
+  .menu-toggle {
+    display: flex;
+    width: clamp(2.4rem, 10vw, 46px);
+    height: clamp(2.4rem, 10vw, 46px);
+    border: 1px solid black;
+    border-radius: clamp(0.2rem, 1vw, 6px);
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: clamp(1px, 0.5vw, 2px);
+    padding: 0;
+    box-sizing: border-box;
+    margin: clamp(0.7rem, 2vw, 14px) clamp(0.5rem, 2vw, 12px) clamp(0.7rem, 2vw, 14px) auto;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    display: block;
+    height: clamp(1.5px, 0.5vw, 2px);
+    background-color: black;
+    border-radius: clamp(0.5px, 0.5vw, 1px);
+  }
+
+  .menu-toggle span:nth-child(1) { width: clamp(12px, 3vw, 14px); }
+  .menu-toggle span:nth-child(2) { width: clamp(9px, 2.2vw, 10px); }
+  .menu-toggle span:nth-child(3) { width: clamp(5px, 1.6vw, 6px); }
+
+  .mobile-logo {
+    width: 100%;
+    text-align: left;
+  }
+
+  .mobile-logo img {
+    height: clamp(16px, 3vw, 26px);
+    width: auto;
+    max-width: 100%;
+    display: block;
+    object-fit: contain;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: clamp(16rem, 40vw, 360px);
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(0.1rem, 1vw, 6px) clamp(1rem, 4vw, 24px);
+    gap: clamp(1.5rem, 4vw, 28px);
+    transform: translateX(-100%);
+    z-index: 1002;
+    display: flex;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar.mobile .nav-links {
+    transform: translateX(0%);
+    border-right: 1px solid #000;
+  }
+
+  .nav-links li {
+    list-style: none;
+    width: 100%;
+  }
+
+  .nav-links li a {
+    font-size: clamp(0.85rem, 2.2vw, 17px);
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: clamp(0.2px, 0.16vw, 0.35px);
+    color: black;
+    text-decoration: none;
+  }
+
+  .nav-links li a:hover {
+    background-color: #313130;
+    color: #fff;
+  }
+
+  .nav-links a.active {
+    background-color: #000;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-reserve {
+    width: 100%;
+    font-size: clamp(0.85rem, 2.2vw, 17px);
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: clamp(0.2px, 0.16vw, 0.35px);
+  }
+
+  .mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 998;
+  }
+
+  .close-icon {
+    font-size: clamp(1rem, 4vw, 18px);
+    color: black;
+    line-height: 1;
+  }
+}

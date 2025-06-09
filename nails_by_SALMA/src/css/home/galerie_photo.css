@@ -1,0 +1,18 @@
+.infinite-carousel {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  scroll-behavior: auto;
+  margin: auto;
+}
+
+.infinite-carousel img {
+  width: clamp(10rem, 25vw, 420px);
+  height: auto;
+  object-fit: cover;
+  margin-right: clamp(0.8rem, 3vw, 36px);
+  flex-shrink: 0;
+  border-radius: clamp(0.25rem, 0.9vw, 7px);
+  border: 1px solid #434343;
+}
