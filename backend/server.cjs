@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
+const fs = require('fs');
+const path = require('path');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -111,6 +114,28 @@ app.get('/api/services', async (req, res) => {
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+});
+
+// 🔹 Initialiser PostgreSQL avec init.sql
+app.get('/init-db', async (req, res) => {
+  try {
+    const initPath = path.join(__dirname, 'init.sql');
+    const sql = fs.readFileSync(initPath, 'utf8');
+
+    const statements = sql
+      .split(/;\s*[\r\n]+/)
+      .map(s => s.trim())
+      .filter(Boolean);
+
+    for (const stmt of statements) {
+      await pool.query(stmt);
+    }
+
+    res.send('✅ Base de données PostgreSQL initialisée avec succès !');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('❌ Erreur lors de l’initialisation : ' + err.message);
   }
 });
 
