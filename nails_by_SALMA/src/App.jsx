@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './composantes/ScrollToTop';
 
 // Pages
@@ -11,14 +11,12 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<ServicesTarifs />} />
-          <Route path="/a-propos" element={<AproposTemoignages />} />
-          <Route path="/rendez-vous" element={<PrendreRendezVous />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<ServicesTarifs />} />
+        <Route path="/a-propos" element={<AproposTemoignages />} />
+        <Route path="/rendez-vous" element={<PrendreRendezVous />} />
+      </Routes>
     </Router>
   );
 }
