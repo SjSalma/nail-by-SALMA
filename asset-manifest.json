@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/nail-by-SALMA/static/css/main.a86573b6.css",
-    "main.js": "/nail-by-SALMA/static/js/main.0d52cd50.js",
+    "main.js": "/nail-by-SALMA/static/js/main.6d73e483.js",
     "static/media/beauté_pieds.png": "/nail-by-SALMA/static/media/beauté_pieds.19c2bb93d1401f9b0134.png",
     "static/media/ongles_naturels.png": "/nail-by-SALMA/static/media/ongles_naturels.73361c2834db92f5a4a0.png",
     "static/media/nail_art.png": "/nail-by-SALMA/static/media/nail_art.37b12fcaac97647ae8eb.png",
@@ -49,10 +49,10 @@
     "static/media/icon2.png": "/nail-by-SALMA/static/media/icon2.ed94d1268fcf9a4ba60e.png",
     "index.html": "/nail-by-SALMA/index.html",
     "main.a86573b6.css.map": "/nail-by-SALMA/static/css/main.a86573b6.css.map",
-    "main.0d52cd50.js.map": "/nail-by-SALMA/static/js/main.0d52cd50.js.map"
+    "main.6d73e483.js.map": "/nail-by-SALMA/static/js/main.6d73e483.js.map"
   },
   "entrypoints": [
     "static/css/main.a86573b6.css",
-    "static/js/main.0d52cd50.js"
+    "static/js/main.6d73e483.js"
   ]
 }
