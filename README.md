@@ -19,30 +19,30 @@ Il met en pratique les concepts de **conception centrée sur l’usager (CCU)** 
 
 nails_by_SALMA/
 ├── public/                         # Fichiers statiques
-│ ├── index.html
-│ └── favicon, manifest, robots
+│   ├── index.html
+│   └── favicon, manifest, robots
 │
 ├── src/                            # Code source React
-│ ├── App.jsx                       # Composant principal
-│ ├── index.js                      # Point d’entrée React
-│ ├── composantes/                  # Composants réutilisables (Navbar, Footer, Form, etc.)
-│ ├── pages/                        # Pages principales (Home, Prenez rendez-vous etc.)
-│ ├── css/                          # Fichiers de styles CSS
-│ ├── assets/                       # Images et médias
-│ └── fonts/                        # Polices personnalisées
+│   ├── App.jsx                     # Composant principal
+│   ├── index.js                    # Point d’entrée React
+│   ├── composantes/               # Composants réutilisables (Navbar, Footer, Form, etc.)
+│   ├── pages/                     # Pages principales (Home, Prenez rendez-vous etc.)
+│   ├── css/                       # Fichiers de styles CSS
+│   ├── assets/                    # Images et médias
+│   └── fonts/                     # Polices personnalisées
 │
 ├── backend/                        # Serveur Node.js + base de données
-│ ├── server.cjs
-│ ├── rdv.db                        # Base de données SQLite
-│ ├── init.sql                      # Script de création initiale
-│ └── services.db                   # Base secondaire (si utilisée)
+│   ├── server.cjs
+│   ├── rdv.db                      # Base de données SQLite
+│   ├── init.sql                    # Script de création initiale
+│   └── services.db                 # Base secondaire (si utilisée)
 │
 ├── package.json                    # Dépendances React
 ├── package-lock.json
 └── README.md                       # Ce fichier
 
 
-> [Lien vers le site final](https://TON-LIEN-NETLIFY-OU-GITHUB-PAGES)
+> [Lien vers le site final](https://sjsalma.github.io/nail-by-SALMA/)
 
 ## 📬 Pour me contacter
 
