@@ -1,16 +1,1 @@
-# Dépendances
-**/node_modules/
-
-# Fichiers sensibles
-.env
-client/.env
-backend/.env
-
-# Dossiers de build
-client/build/
-
-# Fichiers système / éditeurs
-.DS_Store
-*.log
-.vscode/
-.idea/
+node_modules
