@@ -273,6 +273,7 @@ function Form() {
         <label>
           <span>Choisissez les services souhaités :</span>
           <div className="service-selector">
+            console.log("💅 Catégories générées :", categorizeServices());
             {Object.entries(categorizeServices()).map(([categorie, items]) => (
               <div key={categorie}>
                 <strong style={{ pointerEvents: 'none' }}>{categorie}</strong>
