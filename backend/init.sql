@@ -1,23 +1,24 @@
 DROP TABLE IF EXISTS services;
 DROP TABLE IF EXISTS sous_categories;
 DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS reservations;
 
 CREATE TABLE categories (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id SERIAL PRIMARY KEY,
   nom TEXT NOT NULL,
   multiple_selection INTEGER DEFAULT 0,
   depend_de_categorie_id INTEGER
 );
 
 CREATE TABLE sous_categories (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id SERIAL PRIMARY KEY,
   nom TEXT NOT NULL,
   categorie_id INTEGER NOT NULL,
   FOREIGN KEY (categorie_id) REFERENCES categories(id)
 );
 
 CREATE TABLE services (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id SERIAL PRIMARY KEY,
   nom TEXT NOT NULL,
   categorie_id INTEGER NOT NULL,
   sous_categorie_id INTEGER,
@@ -25,6 +26,19 @@ CREATE TABLE services (
   duree_min INTEGER,
   FOREIGN KEY (categorie_id) REFERENCES categories(id),
   FOREIGN KEY (sous_categorie_id) REFERENCES sous_categories(id)
+);
+
+CREATE TABLE reservations (
+  id SERIAL PRIMARY KEY,
+  prenom TEXT,
+  nom TEXT,
+  telephone TEXT,
+  email TEXT,
+  service TEXT,
+  date DATE,
+  horaire TEXT,
+  commentaire TEXT,
+  UNIQUE(date, horaire)
 );
 
 -- Catégories
@@ -55,7 +69,7 @@ INSERT INTO services (nom, categorie_id, sous_categorie_id, prix, duree_min) VAL
 ('Pose complete avec rallongement capsules', 1, 3, 88, 90),
 ('Pose en polygel / acrygel', 1, 3, 88, 90),
 ('Remplissage gel ou polygel', 1, 3, 66, 75),
-('Depose de gel / polygel	', 1, 3, 22, 30),
+('Depose de gel / polygel', 1, 3, 22, 30),
 
 ('Nail art simple (1-2 ongles)', 2, NULL, 7, 15),
 ('Nail art complet personnalise', 2, NULL, 30, 30),
@@ -70,4 +84,4 @@ INSERT INTO services (nom, categorie_id, sous_categorie_id, prix, duree_min) VAL
 
 ('Retrait vernis semi-permanent', 4, NULL, 7, 5),
 ('Massage mains 15min', 4, NULL, 20, 15),
-('Massage mains 15min', 4, NULL, 30, 29);
+('Massage mains 30min', 4, NULL, 30, 29);
