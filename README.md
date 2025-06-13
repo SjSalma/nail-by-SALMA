@@ -17,6 +17,7 @@ Il met en pratique les concepts de **conception centrée sur l’usager (CCU)** 
 
 ## 📁 Structure du projet
 
+```
 nails_by_SALMA/
 ├── public/                         # Fichiers statiques
 │   ├── index.html
@@ -40,7 +41,7 @@ nails_by_SALMA/
 ├── package.json                    # Dépendances React
 ├── package-lock.json
 └── README.md                       # Ce fichier
-
+```
 
 > [Lien vers le site final](https://sjsalma.github.io/nail-by-SALMA/)
 
